@@ -1,0 +1,23 @@
+<mat-card [ngClass]="bgClass">
+    <mat-card-header>
+        <div mat-card-avatar>
+            <mat-icon class="icon-lg">{{icon}}</mat-icon>
+        </div>
+        <mat-card-title>{{count}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content >
+        <mat-grid-list cols="2" rowHeight="40px">
+            <mat-grid-tile>Name: {{name}}</mat-grid-tile>
+            
+            <mat-grid-tile>Email: {{email}}</mat-grid-tile>
+            
+            <mat-grid-tile>Phone: {{phone}}</mat-grid-tile>
+            
+            <mat-grid-tile>Amount of Collection: {{amount}}</mat-grid-tile>
+
+            <mat-grid-tile>Supporting Doc: {{isDoc}}</mat-grid-tile>
+
+            <mat-grid-tile>Supporting Legal: {{isLegal}}</mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>

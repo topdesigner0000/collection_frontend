@@ -1,0 +1,131 @@
+<div class="row" style="display: inline-flex;width:100%">
+    <div class="col-sm-6">
+        <mat-form-field>
+            <input matInput [placeholder]="'Keyword'">
+        </mat-form-field>
+    </div>
+    <div class="col-sm-2">
+        <button mat-raised-button color="primary" style="margin: 10px;">Search</button>
+    </div>
+    <div class="col-sm-2">
+        <button mat-raised-button color="primary" style="margin: 10px;"><mat-icon>add</mat-icon>Add Collection</button>
+    </div>
+    <div class="col-sm-2">
+        <button mat-raised-button color="primary" style="margin: 10px;"><mat-icon>save_alt</mat-icon>Export</button>
+    </div>
+    <div class="col-sm-2">
+        <button mat-raised-button color="primary" style="margin: 10px;"><mat-icon>arrow_upward</mat-icon>Import</button>
+    </div>
+</div>
+<div class="mb-40" flFlex flexLayout="row" flexLayout.lt-md="column">
+    <div fxFlex>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+            <ng-container matColumnDef="client">
+                <th mat-header-cell *matHeaderCellDef> Client </th>
+                <td mat-cell *matCellDef="let element"> {{element.client_name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="collector">
+                <th mat-header-cell *matHeaderCellDef> Collector </th>
+                <td mat-cell *matCellDef="let element"> {{element.collector_name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="debtor">
+                <th mat-header-cell *matHeaderCellDef> Debtor </th>
+                <td mat-cell *matCellDef="let element"> {{element.debtor_name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef> Debtor </th>
+                <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+            </ng-container>
+            <ng-container matColumnDef="remain_amount">
+                <th mat-header-cell *matHeaderCellDef> Remain Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.remain_amount}} </td>
+            </ng-container>
+            <ng-container matColumnDef="collected_amount">
+                <th mat-header-cell *matHeaderCellDef> Collected Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.collected_amount}} </td>
+            </ng-container>
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-raised-button color="primary" style="margin: 10px;" >
+                        <mat-icon>monetization_on</mat-icon> Add Payment 
+                    </button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="save">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button mat-mini-fab color="primary" style="margin: 10px;"><mat-icon>save</mat-icon></button>
+                    <button mat-mini-fab color="warn" style="margin: 10px;"><mat-icon>delete</mat-icon></button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+</div>
+<div class="mb-20" flFlex flexLayout="row" flexLayout.lt-md="column">
+    <mat-tab-group>
+        <mat-tab label="Debtor && Client">
+            <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px" style="margin-top: 2%;margin-left: 5%;margin-right: 5%;">
+                <div fxFlex >
+                    <app-stat [bgClass]="'success'" [icon]="'perm_identity'" [count]="'Debtor Information'" [name]="'Test'" [email]="'test@app.com'" [phone]="'123456'" [amount]="'300'" [isDoc]="'Yes'" [isLegal]="'Yes'"></app-stat>
+                </div>
+                <div fxFlex >
+                    <app-stat2 [bgClass]="'info'" [icon]="'perm_identity'" [count]="'Client Information'" [name]="'Ali'" [email]="'ali@gmail.com'" [phone]="'123456'" [address]="'Lahore Pakistan'"></app-stat2>
+                </div>
+            </div>
+            
+        </mat-tab>
+        
+        <mat-tab label="Action">
+            <button mat-raised-button color="primary" style="margin: 10px;">Add Action</button>
+            <table mat-table [dataSource]="action_datasource" class="mat-elevation-z8" style="width: 100%;">
+                <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+                <ng-container matColumnDef="level1">
+                    <th mat-header-cell *matHeaderCellDef> Level One </th>
+                    <td mat-cell *matCellDef="let element"> {{element.level1}} </td>
+                </ng-container>
+                <ng-container matColumnDef="level2">
+                    <th mat-header-cell *matHeaderCellDef> Level Two </th>
+                    <td mat-cell *matCellDef="let element"> {{element.level2}} </td>
+                </ng-container>
+                <ng-container matColumnDef="level3">
+                    <th mat-header-cell *matHeaderCellDef> Level Three </th>
+                    <td mat-cell *matCellDef="let element"> {{element.level3}} </td>
+                </ng-container>
+                <ng-container matColumnDef="note">
+                    <th mat-header-cell *matHeaderCellDef> Note </th>
+                    <td mat-cell *matCellDef="let element"> {{element.note}} </td>
+                </ng-container>
+                <ng-container matColumnDef="created">
+                    <th mat-header-cell *matHeaderCellDef> Created Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.created}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="actionColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: actionColumns;"></tr>
+            </table>
+        </mat-tab>
+        <mat-tab label="Attachment">
+            <button mat-raised-button color="primary" style="margin: 10px;">Add Attachment</button>
+            <mat-list>
+                <div *ngFor="let el of attachments">
+                    <mat-list-item><a href={{el.url}}>{{el.name}}</a></mat-list-item>
+                    <mat-divider></mat-divider>
+                </div>
+            </mat-list>
+        </mat-tab>
+      </mat-tab-group>
+</div>

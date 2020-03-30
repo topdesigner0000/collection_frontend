@@ -1,0 +1,40 @@
+<div id="sidebar">
+    <mat-nav-list>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
+            <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
+        </a>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/collection']">
+            <mat-icon class="sidenav-icon">monetization_on</mat-icon> {{ 'Collections' | translate }}
+        </a>
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+            <mat-expansion-panel-header style="margin-left: -5px;">
+                <mat-icon class="sidenav-icon" >build</mat-icon> <span style="margin-left: 12px;font-size: 16px;">{{ 'Settings' | translate }}</span>
+            </mat-expansion-panel-header>
+            <mat-nav-list >
+                <mat-expansion-panel [class.mat-elevation-z0]="true">
+                    <mat-expansion-panel-header style="margin-left: -5px;">
+                        <mat-icon class="sidenav-icon">contacts</mat-icon> <span style="margin-left: 12px;font-size: 16px;">{{ 'Profiles' | translate }}</span>
+                    </mat-expansion-panel-header >
+                    <mat-nav-list >
+                        <a mat-list-item routerLink="#"><mat-icon>how_to_reg</mat-icon>Collector</a>
+                        <a mat-list-item routerLink="#"><mat-icon>how_to_reg</mat-icon>Client</a>
+                        <a mat-list-item routerLink="#"><mat-icon>how_to_reg</mat-icon>User</a>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+                <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
+                    <mat-icon class="sidenav-icon">flash_on</mat-icon> {{ 'Actions' | translate }}
+                </a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.mat-elevation-z0]="true" >
+            <mat-expansion-panel-header style="margin-left: -5px;">
+                <mat-icon class="sidenav-icon">description</mat-icon> <span style="margin-left: 12px;font-size: 16px;">{{ 'Invoice' | translate }}</span>
+            </mat-expansion-panel-header>
+            <mat-nav-list >
+                <a mat-list-item routerLink="#"><mat-icon>person_add</mat-icon>Collector Commission</a>
+                <br>
+                <a mat-list-item routerLink="#"><mat-icon>visibility</mat-icon>Client Commission</a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+    </mat-nav-list>
+</div>
